@@ -34,6 +34,7 @@
     "hapi": "^16.4.3",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "knock-knock": "^2.0.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.0.0",
     "postcss-loader": "2.0.6",
