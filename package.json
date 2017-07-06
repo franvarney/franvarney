@@ -35,6 +35,7 @@
     "hapi": "^16.4.3",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "joi": "^10.6.0",
     "knock-knock": "^2.0.0",
     "mongoose": "^4.11.1",
     "object-assign": "4.1.1",

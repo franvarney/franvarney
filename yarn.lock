@@ -3705,7 +3705,7 @@ jest@20.0.4:
   dependencies:
     jest-cli "^20.0.4"
 
-joi@10.x.x:
+joi@10.x.x, joi@^10.6.0:
   version "10.6.0"
   resolved "https://registry.yarnpkg.com/joi/-/joi-10.6.0.tgz#52587f02d52b8b75cdb0c74f0b164a191a0e1fc2"
   dependencies:
