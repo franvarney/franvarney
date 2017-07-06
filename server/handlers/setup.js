@@ -62,19 +62,32 @@ function generateUsers(amount, callback) {
 }
 
 function generateRaces(amount, callback) {
-  const participants = new Array(4).fill({}).map(() => {
-    return {
-      user: Faker.random.arrayElement(IDS.users),
-      car: Faker.random.arrayElement(IDS.cars),
-      finishTime: Faker.random.number({ min: 60000, max: 360000 })
-    };
-  });
+  let fastestTime = null;
+
+  function generateParticipants() {
+    return new Array(4).fill({}).map(() => {
+      let finishTime = Faker.random.number({ min: 60000, max: 360000 });
+
+      if (!fastestTime || finishTime < fastestTime) {
+        fastestTime = finishTime;
+      }
+
+      return {
+        user: Faker.random.arrayElement(IDS.users),
+        car: Faker.random.arrayElement(IDS.cars),
+        finishTime
+      };
+    });
+  }
 
   const races = new Array(amount).fill({}).map((race) => {
     race = new Race({
       track: Faker.random.arrayElement(IDS.tracks),
-      participants
+      participants: generateParticipants(),
+      fastestTime
     });
+
+    fastestTime = null; // reset
 
     return createTask.bind(null, race);
   });
