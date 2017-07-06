@@ -1,4 +1,6 @@
-const {Schema, model} = require('mongoose');
+const Mongoose = require('mongoose');
+
+const Schema = Mongoose.Schema;
 
 const RaceSchema = Schema({
   track: {
@@ -19,7 +21,7 @@ const RaceSchema = Schema({
       index: true,
       default: 0
     }
-  }]
+  }],
   createdAt: {
     type: Date,
     default: Date.now
@@ -30,4 +32,4 @@ const RaceSchema = Schema({
   }
 });
 
-module.exports = model('Races', RaceSchema);
+module.exports = Mongoose.model('Races', RaceSchema);

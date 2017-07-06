@@ -1,6 +1,6 @@
-const {Schema, model} = require('mongoose');
+const Mongoose = require('mongoose');
 
-const CarSchema = Schema({
+const CarSchema = Mongoose.Schema({
   name: {
     type: String,
     index: true,
@@ -9,4 +9,4 @@ const CarSchema = Schema({
   color: String
 });
 
-module.exports = model('Cars', CarSchema);
+module.exports = Mongoose.model('Cars', CarSchema);

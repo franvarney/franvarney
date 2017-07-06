@@ -1,6 +1,6 @@
-const {Schema, model} = require('mongoose');
+const Mongoose = require('mongoose');
 
-const TrackSchema = Schema({
+const TrackSchema = Mongoose.Schema({
   name: {
     type: String,
     index: true,
@@ -10,4 +10,4 @@ const TrackSchema = Schema({
   fastestTime: Number
 });
 
-module.exports = model('Tracks', TrackSchema);
+module.exports = Mongoose.model('Tracks', TrackSchema);
