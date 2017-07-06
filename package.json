@@ -29,6 +29,7 @@
     "eslint-plugin-jsx-a11y": "5.0.3",
     "eslint-plugin-react": "7.1.0",
     "extract-text-webpack-plugin": "2.1.2",
+    "faker": "^4.1.0",
     "file-loader": "0.11.2",
     "fs-extra": "3.0.1",
     "hapi": "^16.4.3",
