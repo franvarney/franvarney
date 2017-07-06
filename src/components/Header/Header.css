@@ -1,0 +1,11 @@
+.Header {
+  background: -moz-linear-gradient(top, rgba(19,19,19,1) 0%, rgba(28,28,28,0.96) 9%, rgba(38,38,38,0.89) 24%, rgba(63,63,63,0.72) 59%, rgba(76,76,76,0.6) 82%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(19,19,19,1) 0%,rgba(28,28,28,0.96) 9%,rgba(38,38,38,0.89) 24%,rgba(63,63,63,0.72) 59%,rgba(76,76,76,0.6) 82%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(19,19,19,1) 0%,rgba(28,28,28,0.96) 9%,rgba(38,38,38,0.89) 24%,rgba(63,63,63,0.72) 59%,rgba(76,76,76,0.6) 82%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', endColorstr='#994c4c4c',GradientType=0 ); /* IE6-9 */
+  color: red;
+  font-size: 10vh;
+  font-style: italic;
+  text-align: left;
+  text-transform: uppercase;
+}
