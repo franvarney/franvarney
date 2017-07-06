@@ -7,7 +7,11 @@ const TrackSchema = Mongoose.Schema({
     unique: true
   },
   country: String,
-  fastestTime: Number
+  fastestTime: Number,
+  __v: {
+    type: Number,
+    select: false
+  }
 });
 
 module.exports = Mongoose.model('Tracks', TrackSchema);

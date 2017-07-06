@@ -9,6 +9,10 @@ const UserSchema = Mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  },
+  __v: {
+    type: Number,
+    select: false
   }
 });
 

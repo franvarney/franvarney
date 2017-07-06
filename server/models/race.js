@@ -18,10 +18,14 @@ const RaceSchema = Schema({
     },
     finishTime: {
       type: Number,
-      index: true,
       default: 0
     }
   }],
+  fastestTime: {
+    type: Number,
+    index: true,
+    default: 0
+  },
   createdAt: {
     type: Date,
     default: Date.now
@@ -29,6 +33,10 @@ const RaceSchema = Schema({
   updatedAt: {
     type: Date,
     default: Date.now
+  },
+  __v: {
+    type: Number,
+    select: false
   }
 });
 

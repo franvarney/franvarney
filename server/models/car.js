@@ -6,7 +6,11 @@ const CarSchema = Mongoose.Schema({
     index: true,
     unique: true
   },
-  color: String
+  color: String,
+  __v: {
+    type: Number,
+    select: false
+  }
 });
 
 module.exports = Mongoose.model('Cars', CarSchema);
