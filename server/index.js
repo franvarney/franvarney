@@ -20,7 +20,10 @@ function connectToMongo(callback) {
 
 function startServer(callback) {
   server.connection({
-    port: parseInt(Config.port, 10)
+    port: parseInt(Config.port, 10),
+    routes: {
+      cors: true
+    }
   });
 
   server.route(Routes);
