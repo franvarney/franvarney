@@ -1,6 +1,7 @@
 const Joi = require('joi');
 const KnockKnock = require('knock-knock');
 
+const Races = require('../handlers/races');
 const Setup = require('../handlers/setup');
 
 module.exports = [
@@ -26,5 +27,12 @@ module.exports = [
         })
       }
     }
+  },
+
+  // races
+  {
+    path: '/races',
+    method: 'GET',
+    handler: Races.index
   }
 ];
