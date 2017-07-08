@@ -7,7 +7,8 @@ export default function(time) {
   const output = [];
 
   output.push(Math.floor(time / 60000)); // minutes
-  output.push(((time % 60000) / 1000).toFixed(2)); // seconds
+  const seconds = ((time % 60000) / 1000).toFixed(2);
+  output.push(seconds < 10 ? `0${seconds}` : seconds); // seconds
 
   return output.join(':');
 }
