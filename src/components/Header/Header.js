@@ -8,7 +8,9 @@ class Header extends Component {
   render() {
     return (
       <div className="Header">
-        <h1><img src={Logo} /></h1>
+        <h1>
+          <img src={Logo} alt="Need For Speed" />
+        </h1>
       </div>
     );
   }
