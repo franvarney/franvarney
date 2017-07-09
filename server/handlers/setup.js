@@ -12,6 +12,11 @@ const IDS = {
   users: []
 };
 
+function clearCollections(callback) {
+  [Car, Track, User, Race].forEach((model) => model.collection.remove());
+  return callback();
+}
+
 function createTask(item, next) {
   return item.save((err) => {
     if (err) return next(err);
@@ -22,7 +27,7 @@ function createTask(item, next) {
 function generateCars(amount, callback) {
   const cars = new Array(amount).fill({}).map((car) => {
     car = new Car({
-      name: `${Faker.random.number({ min: 1980, max: 2015 })} ${Faker.random.words(2)}`,
+      name: (`${Faker.random.number({ min: 1980, max: 2015 })} ${Faker.random.words(2)}`).substring(0, 12),
       color: Faker.internet.color()
     });
 
@@ -36,7 +41,7 @@ function generateCars(amount, callback) {
 function generateTracks(amount, callback) {
   const tracks = new Array(amount).fill({}).map((track) => {
     track = new Track({
-      name: Faker.random.words(2),
+      name: Faker.random.words(2).substring(0, 12),
       country: Faker.address.countryCode(),
       fastestTime: Faker.random.number({ min: 50000, max: 60000 })
     });
@@ -51,7 +56,7 @@ function generateTracks(amount, callback) {
 function generateUsers(amount, callback) {
   const users = new Array(amount).fill({}).map((user) => {
     user = new User({
-      username: Faker.internet.userName(),
+      username: Faker.internet.userName().substring(0, 12),
     });
 
     IDS.users.push(user._id);
@@ -97,6 +102,7 @@ function generateRaces(amount, callback) {
 
 module.exports = function (request, reply) {
   Series([
+    clearCollections,
     generateCars.bind(null, request.payload.car),
     generateTracks.bind(null, request.payload.track),
     generateUsers.bind(null, request.payload.user),
