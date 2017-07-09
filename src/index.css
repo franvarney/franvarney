@@ -10,3 +10,9 @@ html, body {
   display: block;
   height: 100%;
 }
+
+@keyframes fadeInLeft {
+  from {
+    transform: translate3d(-30%, 0, 0);
+  }
+}
