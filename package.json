@@ -9,6 +9,7 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
+    "code": "^4.1.0",
     "lab": "^14.1.0"
   },
   "dependencies": {
