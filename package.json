@@ -8,7 +8,9 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "lab": "^14.1.0"
+  },
   "dependencies": {
     "autoprefixer": "7.1.1",
     "babel-core": "6.25.0",
