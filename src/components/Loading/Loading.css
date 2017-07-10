@@ -1,0 +1,58 @@
+.Loading {
+  display: block;
+  min-height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.Loading span {
+  bottom: 50px;
+  color: white;
+  font-size: 7vh;
+  opacity: .8;
+  position: fixed;
+  right: 50px;
+  text-transform: uppercase;
+}
+
+@keyframes rotating {
+  0% {
+    margin-left: 0%;
+    opacity: .1;
+    margin-top: 10%;
+    transform: rotate(0deg);
+  }
+
+  25% {
+    margin-top: 30%;
+    opacity: .9;
+  }
+
+  50% {
+    margin-left: 90%;
+    opacity: .1;
+    margin-top: 10%;
+    transform: rotate(360deg);
+  }
+
+  75% {
+    margin-top: 30%;
+    opacity: .9;
+  }
+
+  100% {
+    margin-left: 0%;
+    opacity: .1;
+    margin-top: 10%;
+    transform: rotate(0deg);
+  }
+}
+
+.rotating {
+  animation: rotating 4.7s linear infinite;
+  display: block;
+  height: 200px;
+  position: relative;
+  width: 200px;
+}
