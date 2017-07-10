@@ -1,4 +1,5 @@
 const Faker = require('faker');
+const Mongoose = require('mongoose');
 const Series = require('run-series');
 
 const Car = require('../models/car');
@@ -13,7 +14,7 @@ const IDS = {
 };
 
 function clearCollections(callback) {
-  [Car, Track, User, Race].forEach((model) => model.collection.remove());
+  Mongoose.connection.db.dropDatabase();
   return callback();
 }
 
