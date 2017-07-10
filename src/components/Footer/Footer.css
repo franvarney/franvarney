@@ -1,7 +1,8 @@
 .Footer {
+  bottom: 35px;
   display: block;
-  height: 60px;
-  position: relative;
+  height: 35px;
+  position: absolute;
   text-align: left;
   width: 100%;
 }

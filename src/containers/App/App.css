@@ -2,6 +2,7 @@
   background-size: cover;
   display: block;
   height: auto;
+  min-height: 100%;
   position: relative;
   text-align: center;
 }
