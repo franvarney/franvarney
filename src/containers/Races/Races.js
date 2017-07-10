@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+import Sdk from '../../helpers/sdk';
 import Loading from '../../components/Loading/Loading';
 import RacesList from '../../components/RacesList/RacesList';
 import UsersList from '../../components/UsersList/UsersList';
@@ -54,7 +55,7 @@ class Races extends Component {
   }
 
   componentDidMount() {
-    this.getRaces((err, races) => {
+    Sdk.getRaces((err, races) => {
       if (err) return console.error(err); // TODO handle err
       this.setState({
         players: races[0].participants,
