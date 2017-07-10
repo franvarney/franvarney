@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "code": "^4.1.0",
-    "lab": "^14.1.0"
+    "lab": "^14.1.0",
+    "mockgoose": "^7.3.3"
   },
   "dependencies": {
     "autoprefixer": "7.1.1",
