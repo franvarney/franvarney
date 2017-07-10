@@ -20,6 +20,7 @@ function connectToMongo(callback) {
 
 function startServer(callback) {
   server.connection({
+    host: process.env.NODE_ENV !== 'production' ? 'localhost' : null,
     port: parseInt(Config.port, 10),
     routes: {
       cors: true
