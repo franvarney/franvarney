@@ -19,13 +19,6 @@ class Races extends Component {
     };
   }
 
-  getRaces(callback) {
-    fetch('http://localhost:5000/races') // TODO use config url
-      .then((response) => response.json())
-      .then((races) => callback(null, races))
-      .catch(callback);
-  }
-
   showPlayers(raceId) {
     const race = this.state.races.find((race) => (race._id === raceId));
     this.setState({
