@@ -57,7 +57,7 @@ function generateTracks(amount, callback) {
 function generateUsers(amount, callback) {
   const users = new Array(amount).fill({}).map((user) => {
     user = new User({
-      username: Faker.internet.userName().substring(0, 12),
+      username: Faker.internet.userName().substring(0, 10),
     });
 
     IDS.users.push(user._id);
