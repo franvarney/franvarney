@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Helmet} from 'react-helmet';
 
 import Sdk from '../../helpers/sdk';
 import Loading from '../../components/Loading/Loading';
@@ -79,6 +80,9 @@ class Races extends Component {
 
     return (
       <div className="Races">
+        <Helmet>
+          <title>Race Results</title>
+        </Helmet>
         <div
           className="column"
           id="Race-results"

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Route, Switch} from 'react-router';
+import {Route, Switch} from 'react-router'
+import {Helmet} from 'react-helmet';
 
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
@@ -13,6 +14,9 @@ class App extends Component {
   render() {
     return (
       <div className="App" style={{ backgroundImage: `url(${RaceBg1})` }}>
+        <Helmet>
+          <link rel="canonical" href={process.env.REACT_APP_API_URL} />
+        </Helmet>
         <Header />
         <div className="content">
           <Switch>
