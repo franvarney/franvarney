@@ -1,24 +1,21 @@
 .App {
+  background-size: cover;
+  display: block;
+  height: 100%;
+  position: relative;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.App:before {
+  background: -moz-linear-gradient(left, rgba(36,46,51,1) 0%, rgba(36,46,51,0.7) 15%, rgba(36,46,51,0.6) 20%, rgba(36,46,51,0) 40%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(36,46,51,1) 0%,rgba(36,46,51,0.7) 15%,rgba(36,46,51,0.6) 20%,rgba(36,46,51,0) 40%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(36,46,51,1) 0%,rgba(36,46,51,0.7) 15%,rgba(36,46,51,0.6) 20%,rgba(36,46,51,0) 40%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#242e33', endColorstr='#00242e33',GradientType=1 ); /* IE6-9 */
+  content: '';
+  left: 0;
+  height: 100%;
+  opacity: .65;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
