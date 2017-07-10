@@ -61,3 +61,25 @@
   position: absolute;
   width: 100%;
 }
+
+@media (max-width: 1024px) {
+  .Races {
+    overflow-x: hidden;
+  }
+
+  .column:first-child {
+    width: 100%;
+  }
+
+  .column table {
+    width: 100%;
+  }
+
+  .column:last-child {
+    display: none;
+  }
+
+  td:last-child {
+    display: none;
+  }
+}

@@ -88,3 +88,17 @@
   color: #ababab;
   cursor: not-allowed;
 }
+
+@media (max-width: 500px) {
+  .RacesList {
+    margin-left: 12px;
+  }
+
+  .RacesList thead td {
+    font-size: 2.8vh;
+  }
+
+  .RacesList tbody td {
+    font-size: 2vh;
+  }
+}

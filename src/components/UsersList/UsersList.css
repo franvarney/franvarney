@@ -16,10 +16,16 @@
 
 .UsersList td {
   padding-right: 35px;
+  width: 42%;
 }
 
 .UsersList td:first-child {
   padding-right: 15px;
+  width: 6%;
+}
+
+.UsersList td:last-child {
+  width: 10%;
 }
 
 .UsersList tbody tr {
