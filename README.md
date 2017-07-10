@@ -1,5 +1,7 @@
 # n4s-sample
 
+![Screenshot](https://github.com/franvarney/n4s-sample/blob/master/screenshots/ss1.png)
+
 ### Versions
 
 - Node v6
