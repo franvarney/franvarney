@@ -1,8 +1,12 @@
 {
   "name": "n4s-sample",
   "version": "0.1.0",
+  "main": "server/index.js",
   "private": true,
+  "homepage" : "https://franvarney.github.io/n4s-sample/",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "node scripts/start.js",
     "start:server": "node server/",
     "build": "node scripts/build.js",
@@ -11,6 +15,7 @@
   },
   "devDependencies": {
     "code": "^4.1.0",
+    "gh-pages": "^1.0.0",
     "lab": "^14.1.0",
     "sinon": "^2.3.6",
     "sinon-mongoose": "^2.0.2"
