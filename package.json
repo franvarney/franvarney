@@ -4,7 +4,8 @@
   "description": "",
   "main": "server/index.js",
   "dependencies": {
-    "hapi": "^16.5.2"
+    "hapi": "^16.5.2",
+    "mongoose": "^4.11.5"
   },
   "devDependencies": {},
   "scripts": {
