@@ -1,0 +1,13 @@
+{
+  "name": "reservations-api",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Francesca Varney <fran.varn@gmail.com>",
+  "license": "MIT"
+}
