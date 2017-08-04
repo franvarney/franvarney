@@ -6,6 +6,7 @@
   "dependencies": {
     "boom": "^5.2.0",
     "hapi": "^16.5.2",
+    "joi": "^10.6.0",
     "mongoose": "^4.11.5",
     "run-series": "^1.1.4",
     "shortid": "^2.2.8",
