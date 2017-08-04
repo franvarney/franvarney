@@ -3,6 +3,7 @@ const Mongoose = require('mongoose');
 const Series = require('run-series');
 
 const Config = require('../config');
+const Routes = require('./routes');
 
 const server = new Server();
 
@@ -26,7 +27,7 @@ function startServer(callback) {
     }
   });
 
-  // routes
+  server.route(Routes);
 
   server.start((err) => {
     if (err) return callback(err);
