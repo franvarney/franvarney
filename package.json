@@ -5,7 +5,8 @@
   "main": "server/index.js",
   "dependencies": {
     "hapi": "^16.5.2",
-    "mongoose": "^4.11.5"
+    "mongoose": "^4.11.5",
+    "run-series": "^1.1.4"
   },
   "devDependencies": {},
   "scripts": {
