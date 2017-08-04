@@ -7,7 +7,15 @@ module.exports = [
   {
     path: '/api/users',
     method: 'POST',
-    handler: Users.create
+    handler: Users.create,
+    config: {
+      validate: {
+        payload: Joi.object().keys({
+          email: Joi.string().email(),
+          password: Joi.string().min(6).max(20)
+        })
+      }
+    }
   },
 
   {
