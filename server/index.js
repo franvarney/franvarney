@@ -2,7 +2,9 @@ const {Server} = require('hapi');
 const Mongoose = require('mongoose');
 const Series = require('run-series');
 
+const Authenticate = require('./handlers/authenticate');
 const Config = require('../config');
+const Plugins = require('./plugins');
 const Routes = require('./routes');
 
 const server = new Server();
@@ -27,11 +29,22 @@ function startServer(callback) {
     }
   });
 
-  server.route(Routes);
-
-  server.start((err) => {
+  server.register(Plugins, (err) => {
     if (err) return callback(err);
-    return callback(null, `Server started at ${server.info.uri}`);
+
+    server.route(Routes);
+
+    server.auth.strategy('simple', 'bearer-access-token', {
+      allowQueryToken: false,
+      allowMultipleHeaders: false,
+      accessTokenName: 'access_token',
+      validateFunc: Authenticate
+    });
+
+    server.start((err) => {
+      if (err) return callback(err);
+      return callback(null, `Server started at ${server.info.uri}`);
+    });
   });
 }
 
