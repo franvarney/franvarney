@@ -15,9 +15,9 @@ exports.create = function (request, reply) {
     function (callback) {
       const user = new User(request.payload);
 
-      user.save((err, user) => {
+      user.save((err, saved) => {
         if (err) return callback(Boom.badRequest(err));
-        return callback(null, user);
+        return callback(null, saved);
       });
     }
   ], (err, [,user]) => {
