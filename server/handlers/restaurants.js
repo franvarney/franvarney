@@ -1,6 +1,6 @@
 const Boom = require('boom');
-
 const Series = require('run-series');
+
 const Restaurant = require('../models/restaurant');
 
 exports.create = function (request, reply) {
@@ -13,6 +13,10 @@ exports.create = function (request, reply) {
       });
     },
     function (callback) {
+      if (request.payload.open >= request.payload.close) {
+        return callback(Boom.badData('Close time can\'t be before open time'));
+      }
+
       const restaurant = new Restaurant(request.payload);
 
       restaurant.save((err, saved) => {
@@ -31,6 +35,14 @@ exports.get = function (request, reply) {
     if (err) return reply(Boom.badRequest(err));
     if (!restaurant) return reply(Boom.notFound('Restaurant not found'));
     return reply(restaurant);
+  });
+}
+
+// This is only here so I don't have to use the terminal
+exports.index = function (request, reply) {
+  Restaurant.find({}, (err, restaurants) => {
+    if (err) return reply(Boom.badRequest(err));
+    return reply(restaurants);
   });
 }
 
