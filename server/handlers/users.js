@@ -25,3 +25,11 @@ exports.create = function (request, reply) {
     return reply({ id: user.toJSON().id }).code(201);
   });
 }
+
+// This is only here so I don't have to use the terminal
+exports.index = function (request, reply) {
+  User.find({}, (err, users) => {
+    if (err) return reply(Boom.badRequest(err));
+    return reply(users);
+  });
+}
