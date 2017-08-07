@@ -32,14 +32,14 @@ function startServer(callback) {
   server.register(Plugins, (err) => {
     if (err) return callback(err);
 
-    server.route(Routes);
-
     server.auth.strategy('simple', 'bearer-access-token', {
       allowQueryToken: false,
       allowMultipleHeaders: false,
       accessTokenName: 'access_token',
       validateFunc: Authenticate
     });
+
+    server.route(Routes);
 
     server.start((err) => {
       if (err) return callback(err);
