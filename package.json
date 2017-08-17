@@ -1,0 +1,21 @@
+{
+  "name": "enrollment-api",
+  "version": "0.0.0",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franvarney/enrollment-api.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/franvarney/enrollment-api/issues"
+  },
+  "homepage": "https://github.com/franvarney/enrollment-api#readme",
+  "engines": {
+    "node": "8.x"
+  }
+}
