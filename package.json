@@ -19,6 +19,7 @@
     "node": "8.x"
   },
   "dependencies": {
+    "csvtojson": "^1.1.7",
     "hapi": "^16.5.2"
   }
 }
