@@ -1,0 +1,8 @@
+task,studentId,courseId
+unenroll,1,
+enroll,1,5
+unenroll,2,
+enroll,2,1
+enroll,2,3
+unenroll,2,
+enroll,99999,25
