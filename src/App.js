@@ -40,7 +40,6 @@ class App extends Component {
         return response.json();
       }).then((body) => {
         // if (body && body.status !== 200) ...error
-        console.log(body);
         this.setState({
           result: body.data[0].images.original.url
         });
