@@ -11,7 +11,11 @@ function getQuoteIndices(str, wrapper='"') {
       else right = i;
     }
 
-    if (left >= 0 && right >= 0 && right - left > 1) {
+    if (right - left === 1) {
+      right = -1;
+    }
+
+    if (left >= 0 && right >= 0) {
       indices.push(left);
       indices.push(right);
       left = -1;
@@ -42,11 +46,14 @@ function filterAndMerge(quoteIndices, separatorIndices) {
     if (i >= quoteIndices.length) {
       indices.push(separatorIndices[j++]);
     } else {
-      if (quoteIndices[i] < separatorIndices[j]) {
-        indices.push(quoteIndices[i]);
-        ++i;
+      if (separatorIndices[j] > quoteIndices[i] &&
+          separatorIndices[j] < quoteIndices[i + 1]) {
+        ++j;
+      } else {
+        indices.push(quoteIndices[i++]); // left quote
+        indices.push(quoteIndices[i++]); // right quote
+        indices.push(separatorIndices[j++]);
       }
-      if (quoteIndices[i] > separatorIndices[j]) ++j;
     }
   }
 
@@ -94,13 +101,13 @@ function split(str, separator) {
   while (charIndex < str.length) {
     // build up partial string
     if (charIndex !== separatorIndex) {
-      let char = str[charIndex];
-      if (str[charIndex] === '"' && str[charIndex + 1] === '"') {
+      let char = str[charIndex++];
+      if (char + str[charIndex] === '""') {
+        // collapse quote
         part += '"';
-        charIndex += 2;
+        ++charIndex;
       } else {
         part += char;
-        ++charIndex;
       }
     }
 
