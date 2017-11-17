@@ -11,10 +11,12 @@ function getQuoteIndices(str, wrapper='"') {
       else right = i;
     }
 
+    // quotes are next to each other, reset right and search for next quote
     if (right - left === 1) {
       right = -1;
     }
 
+    // when there is a pair, add them to the list of indices
     if (left >= 0 && right >= 0) {
       indices.push(left);
       indices.push(right);
@@ -30,6 +32,7 @@ function getSeparatorIndices(str, separator) {
   const indices = [];
   let currentIndex = -1;
 
+  // add all indices of the separator
   while ((currentIndex = str.indexOf(separator, currentIndex + 1)) >= 0) {
     indices.push(currentIndex);
   }
@@ -44,12 +47,17 @@ function filterAndMerge(quoteIndices, separatorIndices) {
 
   while (i + j < quoteIndices.length + separatorIndices.length) {
     if (i >= quoteIndices.length) {
+      // no more quotes, just add the separator indices
       indices.push(separatorIndices[j++]);
     } else {
       if (separatorIndices[j] > quoteIndices[i] &&
           separatorIndices[j] < quoteIndices[i + 1]) {
+        // a separator is wrapped in quotes, increment and skip adding to
+        // the list of indices
         ++j;
       } else {
+        // a separator is not wrapped in quotes, add previous quote indices and
+        // the current separator index to the list of indices
         indices.push(quoteIndices[i++]); // left quote
         indices.push(quoteIndices[i++]); // right quote
         indices.push(separatorIndices[j++]);
@@ -114,6 +122,7 @@ function split(str, separator) {
     // add to results when reaching a separator
     if (charIndex >= separatorIndex) {
       if (str[separatorIndex] === '"') {
+        // make sure to increment charIndex by one if separator is a quote
         charIndex = separatorIndex + 1;
       } else {
         charIndex = separatorIndex + separator.length;

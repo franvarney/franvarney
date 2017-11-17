@@ -11,6 +11,7 @@ function getQuoteIndices(str, wrapper='"') {
       else right = i;
     }
 
+    // when there is a pair, add them to the list of indices
     if (left >= 0 && right >= 0) {
       indices.push(left);
       indices.push(right);
@@ -26,6 +27,7 @@ function getSeparatorIndices(str, separator) {
   const indices = [];
   let currentIndex = -1;
 
+  // add all indices of the separator
   while ((currentIndex = str.indexOf(separator, currentIndex + 1)) >= 0) {
     indices.push(currentIndex);
   }
