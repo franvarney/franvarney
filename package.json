@@ -8,6 +8,8 @@
   "author": "Fran Varney <fran.varn@gmail.com>",
   "dependencies": {
     "hapi": "^17.2.0",
-    "knock-knock": "^2.0.0"
+    "knock-knock": "^2.0.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
   }
 }
