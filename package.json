@@ -5,5 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Fran Varney <fran.varn@gmail.com>"
+  "author": "Fran Varney <fran.varn@gmail.com>",
+  "dependencies": {
+    "hapi": "^17.2.0"
+  }
 }
