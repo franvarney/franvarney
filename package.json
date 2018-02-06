@@ -7,6 +7,7 @@
   },
   "author": "Fran Varney <fran.varn@gmail.com>",
   "dependencies": {
-    "hapi": "^17.2.0"
+    "hapi": "^17.2.0",
+    "knock-knock": "^2.0.0"
   }
 }
