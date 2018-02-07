@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/",
+    "test": "lab -cv"
   },
   "author": "Fran Varney <fran.varn@gmail.com>",
   "dependencies": {
@@ -14,5 +15,9 @@
     "lodash.get": "^4.4.2",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "code": "^5.1.2",
+    "lab": "^15.2.1"
   }
 }
