@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114111086514254462}
   m_Layer: 0
   m_Name: Game
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,3 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRecording: 0
   startTime: 0
+  song: 
