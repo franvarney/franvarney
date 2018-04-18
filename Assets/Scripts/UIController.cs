@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour {
     [SerializeField] private GameObject notePrefab;
     [SerializeField] private GameObject playStopGameObject;
     [SerializeField] private GameObject playHeadGameObject;
+    [SerializeField] private Text middleSecondsText;
+    [SerializeField] private Text endSecondsText;
 
     private event Action EraseSongPressed;
     private event Action PlayStopPressed;
@@ -41,9 +43,6 @@ public class UIController : MonoBehaviour {
         playStopButton.onClick.AddListener(PlaySong);
         eraseGameObject.SetActive(false);
         playStopGameObject.SetActive(false);
-
-        GameObject.Find("MiddleSecondsText").GetComponent<Text>().text = (GameController.Instance.DURATION / 2).ToString() + "s";
-        GameObject.Find("EndSecondsText").GetComponent<Text>().text = (GameController.Instance.DURATION).ToString() + "s";
     }
 
     private void Subscribe() {
@@ -55,6 +54,8 @@ public class UIController : MonoBehaviour {
     }
 
     void Start () {
+        middleSecondsText.text = (GameController.Instance.DURATION / 2).ToString() + "s";
+        endSecondsText.text = (GameController.Instance.DURATION).ToString() + "s";
         Subscribe();
     }
 

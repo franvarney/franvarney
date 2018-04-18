@@ -1187,6 +1187,8 @@ MonoBehaviour:
   notePrefab: {fileID: 1742467858336690, guid: 2685c00b0b7c4d747baef985ab2454f6, type: 2}
   playStopGameObject: {fileID: 416201266}
   playHeadGameObject: {fileID: 1571774110}
+  middleSecondsText: {fileID: 1474053455}
+  endSecondsText: {fileID: 1504822310}
 --- !u!1 &1057924120
 GameObject:
   m_ObjectHideFlags: 0
