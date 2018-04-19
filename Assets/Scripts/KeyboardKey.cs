@@ -26,7 +26,7 @@ public class KeyboardKey : MonoBehaviour {
 
     public string Name {
         get {
-            return transform.name;
+            return keyName;
         }
     }
 
@@ -62,6 +62,7 @@ public class KeyboardKey : MonoBehaviour {
 	}
 
     public void PlayNote() {
+        Debug.Log(keyName + " " + pressedAt);
         audioNote.Play();
     }
 }

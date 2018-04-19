@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour {
     public event Action DonePlaying;
     public event Action DoneRecording;
     public event Action<KeyboardKey> NotePlayed;
+    public event Action StartRecording;
     [SerializeField] public readonly float DURATION = 5f;
     private float elapsedTime = 0f;
     private GameObject notePanelGameObject;
@@ -64,15 +65,18 @@ public class GameController : MonoBehaviour {
     }
 
     public void OnKeyPress(KeyboardKey key) {
-        if (isRecording == false) {
+        if (isRecording == false && song.Count <= 0) {
             startTime = Time.time;
             isRecording = true;
+            if (StartRecording != null) {
+                StartRecording();
+            }
         }
 
         if (isRecording == true) {
+            song.Add(key);
             if (NotePlayed != null) {
                 NotePlayed(key);
-                song.Add(key);
             }
         }
     }
@@ -92,19 +96,22 @@ public class GameController : MonoBehaviour {
 
     private IEnumerator Play() {
         // TODO Check for filter toggle and apply it
-
+        Debug.Log(song.Count + "---------");
         float lastPlayedTime = startTime;
 
-        foreach (KeyboardKey key in song) {
+        for (int i = 0; i < song.Count; ++i) {
+            KeyboardKey key = song[i];
+            Debug.Log(key.Name + " times");
+            Debug.Log(key.PlayedAt + "/" + lastPlayedTime);
+            Debug.Log(key.PlayedAt - lastPlayedTime);
             yield return new WaitForSecondsRealtime(key.PlayedAt - lastPlayedTime);
             key.PlayNote();
             lastPlayedTime = key.PlayedAt;
         }
 
-        StopCoroutine(play);
-
-        if (DonePlaying != null)
+        if (DonePlaying != null) {
             DonePlaying();
+        }
     }
 
     public void OnPlaySong() {

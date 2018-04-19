@@ -26,6 +26,7 @@ public class UIController : MonoBehaviour {
     private bool playStopPressed = false;
     private Button eraseButton;
     private Button playStopButton;
+    private Coroutine playHeadMoving;
     private GameObject bottomWall;
     private GameObject notePanel;
     private GameObject topWall;
@@ -51,6 +52,7 @@ public class UIController : MonoBehaviour {
         GameController.Instance.DonePlaying += OnDonePlaying;
         GameController.Instance.DoneRecording += OnDoneRecording;
         GameController.Instance.NotePlayed += OnNotePlayed;
+        GameController.Instance.StartRecording += OnStartRecording;
     }
 
     void Start () {
@@ -75,19 +77,21 @@ public class UIController : MonoBehaviour {
     }
 
     private void OnDonePlaying() {
+        StopCoroutine(GameController.Instance.play);
+        StopCoroutine(playHeadMoving);
+        playHead.ReturnToOriginalPosition();
         ToggleButtonImage(playStopButton, playImages);
         playStopPressed = false;
-        playHead.ReturnToOriginalPosition();
     }
 
     private void OnDoneRecording() {
+        StopCoroutine(playHeadMoving);
+        playHead.ReturnToOriginalPosition();
         eraseGameObject.SetActive(true);
         playStopGameObject.SetActive(true);
     }
 
     private void OnNotePlayed(KeyboardKey key) {
-        StartCoroutine(playHead.MoveOverSeconds());
-
         float height = topWall.transform.position.y - bottomWall.transform.position.x;
         float spacing = height / GameController.Instance.KeysAmount;
         spacing = bottomWall.transform.position.y - (spacing * (key.Index + 1));
@@ -100,17 +104,23 @@ public class UIController : MonoBehaviour {
         clone.transform.SetParent(notePanel.transform);
     }
 
-    private void PlaySong() {
-        if (playStopPressed == true) {
-            OnDonePlaying();
-            // TODO Break song loop
-        } else {
-            ToggleButtonImage(playStopButton, stopImages);
-            playStopPressed = true;
-        }
-
+    private void OnStartPlaying() {
+        playHeadMoving = StartCoroutine(playHead.MoveOverSeconds());
+        ToggleButtonImage(playStopButton, stopImages);
+        playStopPressed = true;
         if (PlayStopPressed != null)
-             PlayStopPressed();
+            PlayStopPressed();
+    }
+
+    private void OnStartRecording() {
+        playHeadMoving = StartCoroutine(playHead.MoveOverSeconds());
+    }
+
+    private void PlaySong() {
+        if (playStopPressed == true)
+            OnDonePlaying();
+        else
+            OnStartPlaying();
     }
 
     private void ToggleButtonImage(Button button, ButtonImages images) {

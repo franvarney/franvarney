@@ -6,7 +6,6 @@ public class PlayHeadController : MonoBehaviour {
 
     private GameObject rightWall;
     private Vector3 endingPosition;
-    private Vector3 start;
 
     public Vector3 CurrentPosition {
         get {
@@ -33,7 +32,6 @@ public class PlayHeadController : MonoBehaviour {
     }
 
     public void ReturnToOriginalPosition() {
-        // TODO Return to original position or use spawner (leftWall?)
-        // transform.position = start;
+        transform.position = GameObject.Find("LeftBoundary").transform.position;
     }
 }
