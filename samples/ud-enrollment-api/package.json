@@ -1,0 +1,31 @@
+{
+  "name": "enrollment-api",
+  "version": "0.0.0",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/",
+    "test": "lab -cv"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franvarney/enrollment-api.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/franvarney/enrollment-api/issues"
+  },
+  "homepage": "https://github.com/franvarney/enrollment-api#readme",
+  "engines": {
+    "node": "8.x"
+  },
+  "dependencies": {
+    "code": "^4.1.0",
+    "csvtojson": "^1.1.7",
+    "hapi": "^16.5.2",
+    "json2csv": "^3.11.1",
+    "lab": "^14.2.0",
+    "request": "^2.81.0",
+    "run-series": "^1.1.4",
+    "run-waterfall": "^1.1.3"
+  }
+}

@@ -1,0 +1,37 @@
+[
+    {
+        "task": "unenroll",
+        "studentId": "1",
+        "courseId": ""
+    },
+    {
+        "task": "enroll",
+        "studentId": "1",
+        "courseId": "5"
+    },
+    {
+        "task": "unenroll",
+        "studentId": "2",
+        "courseId": ""
+    },
+    {
+        "task": "enroll",
+        "studentId": "2",
+        "courseId": "1"
+    },
+    {
+        "task": "enroll",
+        "studentId": "2",
+        "courseId": "3"
+    },
+    {
+        "task": "unenroll",
+        "studentId": "2",
+        "courseId": ""
+    },
+    {
+        "task": "enroll",
+        "studentId": "99999",
+        "courseId": "25"
+    }
+]
