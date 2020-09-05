@@ -1,0 +1,18 @@
+html, body {
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+#root {
+  display: block;
+  height: 100%;
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translate3d(-30%, 0, 0);
+  }
+}
